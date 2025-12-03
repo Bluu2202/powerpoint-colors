@@ -32,14 +32,18 @@ for i in standard_colors:
 # For all other colors, use the first element as the base, the second element as the top, and set the top to the third element
 # To read this color format, convert the decimal number into hexidecimal, you should get the hex code 
 
+"""
 layers = int(input("How many step colors do you want to construct? (<3 recommended) ")) + 1
 
 while layers > 4:
     print("waitwaitwait you don't wanna kill your computer do you?")
     layers = int(input("How many step colors do you want to construct? (<3 recommended) ")) + 1
-
+"""
+layers = 3
+"""
 update_freq = int(input("How many colors do you want constructed between progress updates? (10k recommended) "))
-
+"""
+update_freq = 10000
 start_time = time.time()
 
 print("Code is running!")
