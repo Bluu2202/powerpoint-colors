@@ -67,17 +67,18 @@ for i in range(1, layers):
                     marks[n_int] = [tuple_to_int(color), tuple_to_int(mix), alpha]
                     number_of_colors += 1
                     new_colors.append(new_color)
-                    if number_of_colors % update_freq == 0:
-                        print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
-                    elif number_of_colors >= 14500000 and number_of_colors < 15500000:
-                        if number_of_colors % (update_freq // 10) == 0:
-                            print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
-                    elif number_of_colors >= 15500000 and number_of_colors < 16000000:
+                    if number_of_colors >= 16000000:
+                        print(f"Color #{number_of_colors} ({new_color}) has been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
+                    elif number_of_colors >= 1550000:
                         if number_of_colors % (update_freq // 100) == 0:
                             print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
-                    elif number_of_colors >= 16000000:
-                        print(f"Color #{number_of_colors} ({new_color}) has been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
+                    elif number_of_colors >= 14500000:
+                        if number_of_colors % (update_freq // 10) == 0:
+                            print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
+                    elif number_of_colors % update_freq == 0:
+                        print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
 
+                           
                 if number_of_colors >= 16777216:
                     break
             if number_of_colors >= 16777216:
