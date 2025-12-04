@@ -110,4 +110,4 @@ with open("methods.json", "w") as f:
 
     f.write("}")
 
-print(f"The program ended with {number_of_colors} colors constructed ({round(number_of_colors / 16777216, 2) * 100}% of the total!) ({int((time.time() - start_time) * 1000) / 1000}s)")
+print(f"The program ended with {number_of_colors} colors constructed ({int(number_of_colors / 16777216 * 100) / 100}% of the total!) ({int((time.time() - start_time) * 1000) / 1000}s)")
