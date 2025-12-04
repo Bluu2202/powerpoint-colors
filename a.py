@@ -39,7 +39,7 @@ while layers > 4:
     print("waitwaitwait you don't wanna kill your computer do you?")
     layers = int(input("How many step colors do you want to construct? (<3 recommended) ")) + 1
 """
-layers = 3
+layers = 4
 """
 update_freq = int(input("How many colors do you want constructed between progress updates? (10k recommended) "))
 """
