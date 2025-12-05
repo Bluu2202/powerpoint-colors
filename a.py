@@ -39,7 +39,6 @@ while layers > 4:
     print("waitwaitwait you don't wanna kill your computer do you?")
     layers = int(input("How many step colors do you want to construct? (<3 recommended) ")) + 1
 """
-layers = 4
 """
 update_freq = int(input("How many colors do you want constructed between progress updates? (10k recommended) "))
 """
@@ -47,7 +46,7 @@ update_freq = 10000
 start_time = time.time()
 
 print("Code is running!")
-for i in range(1, layers):
+while True:
 
     # For every color
     for color in standard_colors:
@@ -68,7 +67,7 @@ for i in range(1, layers):
                     number_of_colors += 1
                     new_colors.append(new_color)
                     if number_of_colors >= 16000000:
-                        print(f"Color #{number_of_colors} ({new_color}) has been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
+                        print(f"Color #{number_of_colors} {new_color} has been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
                     elif number_of_colors >= 1550000:
                         if number_of_colors % (update_freq // 100) == 0:
                             print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
