@@ -75,7 +75,7 @@ while True:
                     
                     if number_of_colors >= 16000000:
                         print(f"Color #{number_of_colors} {new_color} has been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
-                    elif number_of_colors >= 1550000:
+                    elif number_of_colors >= 15500000:
                         if number_of_colors % (update_freq // 100) == 0:
                             print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
                     elif number_of_colors >= 14500000:
