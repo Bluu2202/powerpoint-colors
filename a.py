@@ -45,8 +45,13 @@ update_freq = int(input("How many colors do you want constructed between progres
 update_freq = 10000
 start_time = time.time()
 
+layer = 1
 print("Code is running!")
 while True:
+
+    options = len(standard_colors) * len(standard_colors) * 6
+    option_count = 0
+    percentage = 0
 
     # For every color
     for color in standard_colors:
@@ -55,6 +60,7 @@ while True:
         for mix in standard_colors:
             # And blend it with every alpha
             for alpha in alphas:
+                option_count += 1
                 new_color = blending(color, mix, alpha)
 
                 if new_color == "Kill":
@@ -66,6 +72,7 @@ while True:
                     marks[n_int] = [tuple_to_int(color), tuple_to_int(mix), alpha]
                     number_of_colors += 1
                     new_colors.append(new_color)
+                    
                     if number_of_colors >= 16000000:
                         print(f"Color #{number_of_colors} {new_color} has been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
                     elif number_of_colors >= 1550000:
@@ -76,7 +83,11 @@ while True:
                             print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
                     elif number_of_colors % update_freq == 0:
                         print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
-
+                    
+                if layer >= 2:
+                    if option_count >= options * (percentage + 1) / 10000:
+                        print(f"The color search for layer {layer} is {(percentage + 1) / 100}% completed with {number_of_colors} colors constructed and {option_count} options searched! ({int((time.time() - start_time) * 1000) / 1000}s)")
+                        percentage += 1
                            
                 if number_of_colors >= 16777216:
                     break
@@ -87,9 +98,10 @@ while True:
     if number_of_colors >= 16777216:
         break
 
-    print(f"Layer {i} completed with {number_of_colors} colors! ({int((time.time() - start_time) * 1000) / 1000}s)")
+    print(f"Layer {layer} completed with {number_of_colors} colors! ({int((time.time() - start_time) * 1000) / 1000}s)")
     standard_colors = new_colors
     new_colors = []
+    layer += 1
 
 percent = 0
 with open("methods.json", "w") as f:
