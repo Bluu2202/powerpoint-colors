@@ -1,4 +1,4 @@
-import json
+import os
 import time
 import lookup as lu
 
@@ -42,7 +42,7 @@ while layers > 4:
 """
 update_freq = int(input("How many colors do you want constructed between progress updates? (10k recommended) "))
 """
-update_freq = 100000
+update_freq = 200
 start_time = time.time()
 
 layer = 1
@@ -52,6 +52,7 @@ while True:
     options = len(standard_colors) * len(standard_colors) * 6
     option_count = 0
     percentage = 0
+    time_start_layer = time.time()
 
     # For every color
     for color in standard_colors:
@@ -72,7 +73,7 @@ while True:
                     marks[n_int] = [tuple_to_int(color), tuple_to_int(mix), alpha]
                     number_of_colors += 1
                     new_colors.append(new_color)
-                    
+                    """
                     if number_of_colors >= 16000000:
                         print(f"Color #{number_of_colors} {new_color} has been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
                     elif number_of_colors >= 15500000:
@@ -83,10 +84,15 @@ while True:
                             print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
                     elif number_of_colors % update_freq == 0:
                         print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
+                    """
                     
                 if layer >= 2:
-                    if option_count >= options * (percentage + 1) / 100000:
-                        print(f"The color search for layer {layer} is {(percentage + 1) / 1000}% completed with {number_of_colors} colors constructed and {option_count} options searched! ({int((time.time() - start_time) * 1000) / 1000}s)")
+                    if option_count >= options * (percentage + 1) / (update_freq * 100):
+                        print(f"The color search for layer {layer} is {(percentage + 1) / update_freq}% completed!")
+                        print(f"{number_of_colors} colors constructed. ")
+                        print(f"{option_count} options searched.")
+                        print(f"{int((time.time() - start_time) * 1000) / 1000} seconds elapsed.")
+                        print(f"ETA: {int((time.time() - time_start_layer) * ((update_freq * 100) / (percentage + 1)) * 1000) / 1000}s")
                         percentage += 1
                            
                 if number_of_colors >= 16777216:
@@ -98,6 +104,7 @@ while True:
     if number_of_colors >= 16777216:
         break
 
+    print("\033c")
     print(f"Layer {layer} completed with {number_of_colors} colors! ({int((time.time() - start_time) * 1000) / 1000}s)")
     standard_colors = new_colors
     new_colors = []
