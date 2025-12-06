@@ -42,7 +42,7 @@ while layers > 4:
 """
 update_freq = int(input("How many colors do you want constructed between progress updates? (10k recommended) "))
 """
-update_freq = 10000
+update_freq = 100000
 start_time = time.time()
 
 layer = 1
@@ -85,8 +85,8 @@ while True:
                         print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
                     
                 if layer >= 2:
-                    if option_count >= options * (percentage + 0.01) / 10000:
-                        print(f"The color search for layer {layer} is {(percentage + 1) / 100}% completed with {number_of_colors} colors constructed and {option_count} options searched! ({int((time.time() - start_time) * 1000) / 1000}s)")
+                    if option_count >= options * (percentage + 1) / 100000:
+                        print(f"The color search for layer {layer} is {(percentage + 1) / 1000}% completed with {number_of_colors} colors constructed and {option_count} options searched! ({int((time.time() - start_time) * 1000) / 1000}s)")
                         percentage += 1
                            
                 if number_of_colors >= 16777216:
