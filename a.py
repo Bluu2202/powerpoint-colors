@@ -42,7 +42,7 @@ while layers > 4:
 """
 update_freq = int(input("How many colors do you want constructed between progress updates? (10k recommended) "))
 """
-update_freq = 200
+update_freq = 500
 start_time = time.time()
 
 layer = 1
