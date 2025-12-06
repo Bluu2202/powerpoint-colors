@@ -85,7 +85,7 @@ while True:
                         print(f"{number_of_colors} colors have been constructed! ({int((time.time() - start_time) * 1000) / 1000}s)")
                     
                 if layer >= 2:
-                    if option_count >= options * (percentage + 1) / 10000:
+                    if option_count >= options * (percentage + 0.01) / 10000:
                         print(f"The color search for layer {layer} is {(percentage + 1) / 100}% completed with {number_of_colors} colors constructed and {option_count} options searched! ({int((time.time() - start_time) * 1000) / 1000}s)")
                         percentage += 1
                            
