@@ -113,7 +113,7 @@ int main() {
                         marks[ci] = tuple_to_int(color);  // Storing only base is vastly smaller than Python list
                         number_of_colors++;
                         new_colors.push_back(res.second);
-                        if (number_of_colors % 10000 == 0) {
+                        if (number_of_colors % 1000 == 0) {
                             std::cout << "[INFO] " 
                                       << number_of_colors 
                                       << " colors constructed so far.\n";
