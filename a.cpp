@@ -120,7 +120,7 @@ int main() {
                             std::cout.flush();   // force write even when running under nohup
                         }
                         else if (number_of_colors >= 16500000) {
-                            std::cout << "Color " << ci << " has been constructed, bringing the total to" << number_of_colors << endl;
+                            std::cout << "Color " << ci << " has been constructed, bringing the total to " << number_of_colors << "colors" << endl;
                         }
                     }
 
